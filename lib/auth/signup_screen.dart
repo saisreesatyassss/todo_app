@@ -1,11 +1,11 @@
 import 'dart:developer';
  
 import 'package:flutter/material.dart';
-import 'package:todo_app/pages/auth/auth_service.dart';
-import 'package:todo_app/pages/auth/login_screen.dart';
+import 'package:todo_app/auth/auth_service.dart';
+import 'package:todo_app/auth/login_screen.dart';
 import 'package:todo_app/pages/home_screen.dart';
-import 'package:todo_app/pages/widgets/button.dart';
-import 'package:todo_app/pages/widgets/textfield.dart';
+import 'package:todo_app/widgets/button.dart';
+import 'package:todo_app/widgets/textfield.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});

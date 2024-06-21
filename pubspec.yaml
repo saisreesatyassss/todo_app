@@ -38,6 +38,13 @@ dependencies:
   firebase_core:
   google_sign_in:
   firebase_auth:
+  http:
+  geolocator:
+  flutter_secure_storage: ^9.2.2
+  provider:
+  jwt_decode:
+  bcrypt:
+
 
 
 dev_dependencies:

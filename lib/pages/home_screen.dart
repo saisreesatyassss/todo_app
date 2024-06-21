@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
+import 'package:todo_app/pages/task_form.dart';
 
-import 'auth/auth_service.dart';
-import 'auth/login_screen.dart';
-import 'widgets/button.dart';
+import '../auth/auth_service.dart';
+import '../auth/login_screen.dart';
+import '../widgets/button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,7 +28,16 @@ class HomeScreen extends StatelessWidget {
                 await auth.signout();
                 goToLogin(context);
               },
-            )
+            ),
+            // CustomButton(
+            //   label: "task form",
+            //   onPressed: () async {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => TaskForm()),
+            //     );
+            //   },
+            // )
           ],
         ),
       ),
