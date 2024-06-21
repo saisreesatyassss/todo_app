@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:todo_app/auth/auth_service.dart';
 import 'package:todo_app/auth/signup_screen.dart';
-import 'package:todo_app/pages/home_screen.dart';
+import 'package:todo_app/pages/home.dart';
 import 'package:todo_app/widgets/button.dart';
 import 'package:todo_app/widgets/textfield.dart';
 
@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 30),
             CustomButton(
-              label: "Login",
+              label: "Loginnnn",
               onPressed: _login,
             ),
             const SizedBox(height: 5),
@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   goToHome(BuildContext context) => Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) =>  Home()),
       );
 
   _login() async {

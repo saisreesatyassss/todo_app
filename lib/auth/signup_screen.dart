@@ -1,9 +1,9 @@
 import 'dart:developer';
- 
+
 import 'package:flutter/material.dart';
 import 'package:todo_app/auth/auth_service.dart';
 import 'package:todo_app/auth/login_screen.dart';
-import 'package:todo_app/pages/home_screen.dart';
+import 'package:todo_app/pages/home.dart';
 import 'package:todo_app/widgets/button.dart';
 import 'package:todo_app/widgets/textfield.dart';
 
@@ -87,7 +87,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   goToHome(BuildContext context) => Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) => Home()),
       );
 
   _signup() async {
