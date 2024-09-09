@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/pages/maps/nearbytask.dart';
 
 import '../../../utils/constants.dart';
 
@@ -9,7 +10,14 @@ class TodayButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(30),
-      onTap: () =>{},
+      onTap: () => {
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => NearbyTasksPage(),
+        //   ),
+        // )
+      },
       child: Container(
         height: 50,
         width: 150,

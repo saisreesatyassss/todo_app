@@ -3,7 +3,13 @@ import '../../../utils/constants.dart';
 import 'text_input.dart';
 
 class DescriptionInput extends StatelessWidget {
-  DescriptionInput({super.key});
+  final TextEditingController controller;
+
+  const DescriptionInput({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,21 +17,23 @@ class DescriptionInput extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: defaultPadding / 2,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 10),
             child: Text(
               'Description',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           TextInputField(
+            controller: controller,
             hint: 'Description (Optional)',
-            focus:
-                false, // Example: Change to true if you want it focused initially
+            focus: false, // Example: Change to true if you want it focused initially
             onTap: () {
               // Handle onTap logic here
               print('Description (Optional)');

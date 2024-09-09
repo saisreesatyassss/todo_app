@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
-import 'components/NearbyTaskWidget.dart';
-import 'components/back_decoration.dart';
-import 'components/task_page_holder.dart';
-import 'components/upper_body.dart';
+import '../../utils/constants.dart';
+import '../home/components/back_decoration.dart';
+import '../home/components/custom_app_bar.dart';
+import 'group_page_holder.dart';
 
-class first extends StatelessWidget {
-  first({super.key});
-  // final controller = Get.put(HomeController());
-  @override
+class second extends StatelessWidget {
+  second({super.key});
+   @override
   Widget build(BuildContext context) {
-    return Material(
+    return const Material(
       child: Stack(
         children: [
-          const BackColors(),
+          BackColors(),
           SafeArea(
             child: Scaffold(
                 backgroundColor: Colors.transparent,
                 body: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    UperBody(),
-                    NearbyTaskWidget(), // Add the NearbyTaskWidget here
-
+                    SizedBox(
+                      height: defaultPadding,
+                    ),
+                    CustomAppBar(),
                     const Expanded(
-                      child: TaskPageBody(),
+                      child: GroupPageBody(),
                     ),
                   ],
                 )),

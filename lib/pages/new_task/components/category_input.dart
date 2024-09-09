@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-
 import '../../../utils/constants.dart';
-import 'text_input.dart'; 
+import 'text_input.dart';
 
 class CategoryInput extends StatelessWidget {
-  CategoryInput({super.key});
+  final TextEditingController controller;
+
+  const CategoryInput({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +24,21 @@ class CategoryInput extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 10),
             child: Text(
               'Category',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-          
-           TextInputField(
-          hint: 'Select Category',
-          focus: false, // Example: Change to true if you want it focused initially
-          onTap: () {
-            // Handle onTap logic here
-            print('Text field tapped!');
-          },
-        ),
+          TextInputField(
+            controller: controller,
+            hint: 'Select Category',
+            focus: false, // Example: Change to true if you want it focused initially
+            onTap: () {
+              // Handle onTap logic here
+              print('Text field tapped!');
+            },
+          ),
         ],
       ),
     );

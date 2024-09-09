@@ -46,7 +46,15 @@ dependencies:
   bcrypt:
   animated_bottom_navigation_bar:
   intl:
-
+  google_maps_flutter:
+  permission_handler: 
+  flutter_polyline_points:
+  location: ^6.0.2
+  google_maps_webservice: ^0.0.20-nullsafety.5
+  google_place:
+  flutter_dotenv:
+  url_launcher: 
+  
 
 dev_dependencies:
   flutter_test:

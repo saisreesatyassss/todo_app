@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/pages/sign%20in/components/signin_bar.dart';
 import '../../../utils/constants.dart';
 import '../../Register/components/button.dart';
 import '../../Register/sign_up.dart';
+import 'signin_bar.dart';
 import 'signin_input_form.dart';
 
 class SignInBody extends StatelessWidget {

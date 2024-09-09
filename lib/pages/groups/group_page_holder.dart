@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/pages/home/components/task_list.dart';
- 
-import 'change_button_roe.dart';
- 
-class TaskPageBody extends StatelessWidget {
-  const TaskPageBody({super.key});
+
+import 'group_list.dart';
+  
+
+class GroupPageBody extends StatelessWidget {
+  const GroupPageBody({super.key});
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -30,13 +30,12 @@ class TaskPageBody extends StatelessWidget {
                     Colors.white.withOpacity(.0),
                     Colors.white.withOpacity(.0),
                   ])),
-          // child: TaskPageView(),
-          child: TaskList(
+          // child: GroupPageView(),
+          child: GroupList(
             index: 1,
           ),
         )),
-        ChangeButtonRow(),
-      ],
+       ],
     );
   }
 }

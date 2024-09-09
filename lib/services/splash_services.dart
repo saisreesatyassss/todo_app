@@ -1,8 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import '../pages/RegisterScreen.dart';
-import '../pages/home.dart';
+import 'package:todo_app/pages/home/home.dart';
+import '../pages/Register/sign_up.dart'; 
 import 'api_service.dart';
 
 class SplashServices {
@@ -14,12 +13,12 @@ class SplashServices {
       if (token != null && token.isNotEmpty) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => Home()),
+          MaterialPageRoute(builder: (context) => HomePage()),
         );
       } else {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => RegisterScreen()),
+          MaterialPageRoute(builder: (context) => SignUp()),
         );
       }
     });

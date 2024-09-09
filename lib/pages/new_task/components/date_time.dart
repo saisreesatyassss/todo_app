@@ -3,7 +3,22 @@ import '../../../utils/constants.dart'; // Adjust the path as per your project s
 import 'date_time_container.dart';
 
 class DateTimeInput extends StatelessWidget {
-  DateTimeInput({Key? key});
+  final String? selectedDate;
+  final String? startTime;
+  final String? endTime;
+  final VoidCallback onDateTap;
+  final VoidCallback onStartTimeTap;
+  final VoidCallback onEndTimeTap;
+
+  const DateTimeInput({
+    Key? key,
+    this.selectedDate,
+    this.startTime,
+    this.endTime,
+    required this.onDateTap,
+    required this.onStartTimeTap,
+    required this.onEndTimeTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +37,9 @@ class DateTimeInput extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: defaultPadding / 2),
-              InkWell(
-                onTap: () {
-                  // Handle date selection logic here
-                },
-                child: DateTimeContainer(
-                  text: 'dd/mm/yyyy', // Replace with actual selectedDate value
-                ),
+              DateTimeContainer(
+                text: selectedDate ?? 'Select Date',
+                onTap: onDateTap,
               ),
             ],
           ),
@@ -44,13 +55,9 @@ class DateTimeInput extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: defaultPadding / 2),
-              InkWell(
-                onTap: () {
-                  // Handle start time selection logic here
-                },
-                child: DateTimeContainer(
-                  text: 'hh:mm:a', // Replace with actual startTime value
-                ),
+              DateTimeContainer(
+                text: startTime ?? 'Select Start Time',
+                onTap: onStartTimeTap,
               ),
             ],
           ),
@@ -66,13 +73,9 @@ class DateTimeInput extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: defaultPadding / 2),
-              InkWell(
-                onTap: () {
-                  // Handle end time selection logic here
-                },
-                child: DateTimeContainer(
-                  text: 'hh:mm:a', // Replace with actual endTime value
-                ),
+              DateTimeContainer(
+                text: endTime ?? 'Select End Time',
+                onTap: onEndTimeTap,
               ),
             ],
           ),

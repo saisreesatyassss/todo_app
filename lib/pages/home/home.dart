@@ -37,12 +37,13 @@
 //   }
 // }
 import 'package:flutter/material.dart';
+import '../maps/MapScreen.dart';
 import 'components/back_decoration.dart';
 import 'components/bottom_nav_bar.dart';
-import 'components/floating_action.dart';
-import 'components/task_page_holder.dart';
-import 'components/upper_body.dart';
+import 'components/floating_action.dart'; 
 import 'first.dart';
+import 'fourth.dart';
+import '../groups/second.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -56,9 +57,9 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     first(),
-    Center(child: Text('    Page2')), // Replace with actual pages
-    Center(child: Text('Edit Note Page')), // Replace with actual pages
-    Center(child: Text('Profile Page')), // Replace with actual pages
+    second(),
+     MapScreen(),
+    SignOutPage()
   ];
 
   @override

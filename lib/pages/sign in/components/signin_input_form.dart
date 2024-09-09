@@ -1,133 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:http/http.dart' as http;
-// import 'dart:convert';
-
-// import '../../Register/components/button.dart';
-// import '../../Register/components/text_field.dart'; // Replace with correct path to your InputField widget
-// import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-// import 'package:todo_app/pages/home.dart';
-
-// import '../../home/home.dart';
-
-// class SignInForm extends StatefulWidget {
-//   const SignInForm({Key? key}) : super(key: key);
-
-//   @override
-//   _SignInFormState createState() => _SignInFormState();
-// }
-
-// class _SignInFormState extends State<SignInForm> {
-//   final TextEditingController _emailController = TextEditingController();
-//   final TextEditingController _passwordController = TextEditingController();
-//   final _storage = FlutterSecureStorage();
-
-//   Future<void> _signIn() async {
-//     final String email = _emailController.text;
-//     final String password = _passwordController.text;
-
-//     try {
-//       final response = await http.post(
-//         Uri.parse('http://192.168.1.7:3000/login'),
-//         headers: <String, String>{
-//           'Content-Type': 'application/json; charset=UTF-8',
-//         },
-//         body: jsonEncode(<String, String>{
-//           'email': email,
-//           'password': password,
-//         }),
-//       );
-
-//       if (!mounted) return; // Check if the widget is still mounted
-
-//       if (response.statusCode == 200) {
-//         final Map<String, dynamic> responseBody = jsonDecode(response.body);
-//         final String token = responseBody['accessToken'];
-
-//         await _storage.write(key: 'jwt', value: token);
-//         print('JWT Token: $token');
-
-//         ScaffoldMessenger.of(context).showSnackBar(
-//           SnackBar(content: Text('Login successful!')),
-//         );
-
-//         // Delayed navigation example
-//         Future.delayed(Duration.zero, () {
-//           if (mounted) {
-//             Navigator.of(context).pushReplacement(
-//               MaterialPageRoute(builder: (context) => HomePage()),
-//             );
-//           }
-//         });
-//         print("singing...");
-//       } else {
-//         ScaffoldMessenger.of(context).showSnackBar(
-//           SnackBar(content: Text('Login failed! ${response.body}')),
-//         );
-//       }
-//     } catch (error) {
-//       if (mounted) {
-//         ScaffoldMessenger.of(context).showSnackBar(
-//           SnackBar(content: Text('Error: $error')),
-//         );
-//       }
-//     }
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         SizedBox(height: 40),
-//         Text(
-//           '  Email',
-//           style: TextStyle(
-//             color: Colors.black,
-//             fontWeight: FontWeight.w400,
-//             fontSize: 17,
-//           ),
-//         ),
-//         SizedBox(height: 10),
-//         InputField(
-//           controller: _emailController,
-//           hint: "Enter Your Email",
-//           correct: false,
-//           hideText: false,
-//           prefix: Icon(Icons.email),
-//         ),
-//         SizedBox(height: 20),
-//         Text(
-//           '  Password',
-//           style: TextStyle(
-//             color: Colors.black,
-//             fontWeight: FontWeight.w400,
-//             fontSize: 17,
-//           ),
-//         ),
-//         SizedBox(height: 10),
-//         InputField(
-//           controller: _passwordController,
-//           hint: "Enter Your Password",
-//           correct: false,
-//           hideText: true,
-//           prefix: Icon(Icons.lock),
-//         ),
-//         SizedBox(height: 40),
-//         SizedBox(height: 40),
-//         AccountButton(
-//           text: "Sign In",
-//           tag: "sign_in",
-//           onTap: () {
-//             // if (_formKey.currentState!.validate()) {
-//             _signIn();
-
-//             // }
-//           },
-//         ),
-//       ],
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -149,7 +19,7 @@ class SignInForm extends StatefulWidget {
 class _SignInFormState extends State<SignInForm> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final _storage = FlutterSecureStorage();
+  final _storage = const FlutterSecureStorage();
 
   @override
   void dispose() {
@@ -165,7 +35,7 @@ class _SignInFormState extends State<SignInForm> {
     if (email.isEmpty || password.isEmpty) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Email and password cannot be empty')),
+          const SnackBar(content: Text('Email and password cannot be empty')),
         );
       }
       return;
@@ -173,7 +43,7 @@ class _SignInFormState extends State<SignInForm> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://192.168.1.7:3000/login'),
+        Uri.parse('https://todo-nodejs-server.onrender.com/login'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -194,7 +64,7 @@ class _SignInFormState extends State<SignInForm> {
 
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Login successful!')),
+            const SnackBar(content: Text('Login successful!')),
           );
 
           // Use WidgetsBinding to schedule the navigation to happen at the end of the frame
@@ -228,8 +98,8 @@ class _SignInFormState extends State<SignInForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 40),
-        Text(
+        const SizedBox(height: 40),
+        const Text(
           '  Email',
           style: TextStyle(
             color: Colors.black,
@@ -237,16 +107,16 @@ class _SignInFormState extends State<SignInForm> {
             fontSize: 17,
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         InputField(
           controller: _emailController,
           hint: "Enter Your Email",
           correct: false,
           hideText: false,
-          prefix: Icon(Icons.email),
+          prefix: const Icon(Icons.email),
         ),
-        SizedBox(height: 20),
-        Text(
+        const SizedBox(height: 20),
+        const Text(
           '  Password',
           style: TextStyle(
             color: Colors.black,
@@ -254,15 +124,15 @@ class _SignInFormState extends State<SignInForm> {
             fontSize: 17,
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         InputField(
           controller: _passwordController,
           hint: "Enter Your Password",
           correct: false,
           hideText: true,
-          prefix: Icon(Icons.lock),
+          prefix: const Icon(Icons.lock),
         ),
-        SizedBox(height: 40),
+        const SizedBox(height: 40),
         AccountButton(
           text: "Sign In",
           tag: "sign_in",
@@ -270,13 +140,13 @@ class _SignInFormState extends State<SignInForm> {
             _signIn();
           },
         ),
-         ElevatedButton(
-                onPressed: () {
-                  _signIn();
-                },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-                child: Text('sign IN'),
-              ),
+        // ElevatedButton(
+        //   onPressed: () {
+        //     _signIn();
+        //   },
+        //   style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+        //   child: Text('sign IN'),
+        // ),
       ],
     );
   }

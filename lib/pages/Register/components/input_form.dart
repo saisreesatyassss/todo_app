@@ -1,72 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'text_field.dart';
-
-// class InputForm extends StatelessWidget {
-//   InputForm({super.key});
-//   // final controller = Get.put(SignupController());
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         SizedBox(
-//           height: 40,
-//         ),
-//         Text(
-//           '  Name',
-//           style: TextStyle(
-//               color: Colors.black, fontWeight: FontWeight.w400, fontSize: 17),
-//         ),
-//         SizedBox(
-//           height: 10,
-//         ),
-//         InputField(
-//           hint: "Enter Your Name",
-//           correct: false,
-//           hideText: false,
-//           prefix: Icon(Icons.person),
-//         ),
-//         SizedBox(
-//           height: 20,
-//         ),
-//         Text(
-//           '  Email',
-//           style: TextStyle(
-//               color: Colors.black, fontWeight: FontWeight.w400, fontSize: 17),
-//         ),
-//         SizedBox(
-//           height: 10,
-//         ),
-//         InputField(
-//           hint: "Enter Your @gmail.com",
-//           correct: false,
-//           hideText: false,
-//           prefix: Icon(Icons.person),
-//         ),
-//         SizedBox(
-//           height: 20,
-//         ),
-//         Text(
-//           '  Password',
-//           style: TextStyle(
-//               color: Colors.black, fontWeight: FontWeight.w400, fontSize: 17),
-//         ),
-//         SizedBox(
-//           height: 10,
-//         ),
-//         InputField(
-//           hint: "Pick a strong password",
-//           correct: false,
-//           hideText: true,
-//           prefix: Icon(Icons.person),
-//         ),
-//         SizedBox(
-//           height: 40,
-//         ),
-//       ],
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -100,7 +31,7 @@ class _InputFormState extends State<InputForm> {
     final String password = _passwordController.text;
 
     final response = await http.post(
-      Uri.parse('http://192.168.1.7:3000/register'),
+      Uri.parse('https://todo-nodejs-server.onrender.com/register'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

@@ -21,7 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     final String password = _passwordController.text;
 
     final response = await http.post(
-      Uri.parse('http://192.168.1.7:3000/register'),
+      Uri.parse('https://todo-nodejs-server.onrender.com/register'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

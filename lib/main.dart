@@ -6,8 +6,8 @@ import 'package:todo_app/pages/create_group_screen.dart';
 import 'package:todo_app/pages/group_tasks_screen.dart';
 import 'package:todo_app/pages/home.dart';
 import 'pages/Register/sign_up.dart';
+import 'pages/home/fourth.dart';
 import 'pages/home/home.dart';
-import 'pages/sign in/sign_in.dart';
 import 'pages/sign_in_screen.dart';
 import 'pages/splash/splash_screen.dart';
 
@@ -39,15 +39,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: SplashView(),
       routes: {
         '/SplashView': (context) => SplashView(),
+        '/SignUp': (context) => SignUp(),
+        '/HomePage': (context) => HomePage(),
         '/sign-in': (context) => SignInScreen(),
         '/register': (context) => RegisterScreen(),
         '/home': (context) => Home(),
-        '/groupTasks': (context) => GroupTasksScreen(
-            groupId: ModalRoute.of(context)!.settings.arguments as String),
-        '/createGroup': (context) => CreateGroupScreen(),
+        // '/groupTasks': (context) => GroupTasksScreen(
+        //     groupId: ModalRoute.of(context)!.settings.arguments as String),
+        // '/createGroup': (context) => CreateGroupScreen(),
+        '/signout': (context) => SignOutPage(),
       },
     );
   }
